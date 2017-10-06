@@ -28,8 +28,18 @@ $().ready(function(){
         element: 'bar-chart',
         resize: true,
         data: [
-          <?php foreach ($get_vote as $k): ?>
-          {y: '<?php echo $k->calon ?>', a: <?php echo $k->jumlah_vote ?>,},
+          <?php foreach ($get_vote as $k):
+            // Ganti nama calon disini
+            switch  ($k->calon){
+              case 'ketua1' : $calon = "Eka yoga";break;
+              case 'ketua2' : $calon = "Joviandro";break;
+              case 'ketua3' : $calon = "Andro";break;
+              case 'wakil1' : $calon = "William";break;
+              case 'wakil2' : $calon = "Kevin hendraw";break;
+              case 'wakil3' : $calon = "Ciat ciat";break;
+            }
+             ?>
+          {y: '<?php echo $calon ?>', a: <?php echo $k->jumlah_vote ?>,},
           <?php endforeach; ?>
         ],
         barColors: ['#00a65a', '#f56954'],
@@ -114,6 +124,36 @@ $().ready(function(){
             </div>
         </div><!-- ./col -->
     </div><!-- /.row -->
+    <div class="row">
+           <!-- /.col -->
+           <div class="col-md-3 col-sm-6 col-xs-12">
+             <div class="info-box">
+               <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+
+               <div class="info-box-content">
+                 <span class="info-box-text"><?php foreach($get_max as $v):echo $v->jumlah_vote;endforeach  ?></span>
+                 <span class="info-box-number"><?php foreach($get_max as $v):endforeach  ?></span>
+               </div>
+               <!-- /.info-box-content -->
+             </div>
+             <!-- /.info-box -->
+           </div>
+           <!-- /.col -->
+           <div class="col-md-3 col-sm-6 col-xs-12">
+             <div class="info-box">
+               <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+
+               <div class="info-box-content">
+                 <span class="info-box-text">Likes</span>
+                 <span class="info-box-number">93,139</span>
+               </div>
+               <!-- /.info-box-content -->
+             </div>
+             <!-- /.info-box -->
+           </div>
+           <!-- /.col -->
+         </div>
+         <!-- /.row -->
     <!-- Main row -->
     <div class="box box-primary">
                 <div class="box-header with-border">
@@ -134,13 +174,16 @@ $().ready(function(){
               </div>
               <!-- /.box -->
 
-              <div class="row">
+
+              <!-- row -->
+      <div class="row">
         <div class="col-xs-12">
+          <!-- jQuery Knob -->
           <div class="box box-solid">
             <div class="box-header">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Graph</h3>
+              <h3 class="box-title">jQuery Knob</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -152,15 +195,45 @@ $().ready(function(){
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-
-                <!-- ./col -->
                 <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="<?php echo (int)$get_percent; ?>" data-width="120" data-height="120" data-fgColor="#f56954">
+                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
 
-                  <div class="knob-label"><?php echo $get_percent ?></div>
+                  <div class="knob-label">data-thickness="0.1"</div>
                 </div>
                 <!-- ./col -->
+                <div class="col-xs-6 col-md-3 text-center">
+                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
 
+                  <div class="knob-label">data-thickness="0.1"</div>
+                </div>
+                <!-- ./col -->
+                <div class="col-xs-6 col-md-3 text-center">
+                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                  <div class="knob-label">data-thickness="0.1"</div>
+                </div>
+                <!-- ./col -->
+                <div class="col-xs-6 col-md-3 text-center">
+                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                  <div class="knob-label">data-thickness="0.1"</div>
+                </div>
+                <!-- ./col -->
+              </div>
+              <!-- /.row -->
+
+              <div class="row">
+                <div class="col-xs-6 text-center">
+                  <<input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                  <div class="knob-label">data-thickness="0.1"</div>
+                </div>
+                <!-- ./col -->
+                <div class="col-xs-6 text-center">
+                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
+
+                  <div class="knob-label">data-thickness="0.1"</div>
+                </div>
                 <!-- ./col -->
               </div>
               <!-- /.row -->

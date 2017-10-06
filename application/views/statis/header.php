@@ -2,8 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ee6e73">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ee6e73" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote now!</title>
     <!-- Online mode
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -23,7 +25,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css" />
 
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script>
-</script>
+     
   </head>
   <body>

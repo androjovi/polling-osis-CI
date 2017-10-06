@@ -27,6 +27,15 @@
       border-bottom: 2px solid #e91e63;
       box-shadow: none;
     }
+    .container-2{
+      display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; width:35%;
+    }
+    @media screen and (max-device-width: 1080px) {
+      .container-2{
+        width: auto;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -41,7 +50,7 @@
       <div class="section"></div>
 
       <div class="container">
-        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; width:35%;">
+        <div class="z-depth-1 grey lighten-4 row container-2">
 
 
             <div class='row'>

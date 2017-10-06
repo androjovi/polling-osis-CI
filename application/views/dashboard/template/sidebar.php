@@ -34,7 +34,7 @@
                     <li><a href="<?php echo site_url('dashboard/main_page'); ?>"><i class="fa fa-circle-o"></i> Main page</a></li>
                     <li><a href="<?php echo site_url('dashboard/advanced_page'); ?>"><i class="fa fa-circle-o"></i> Advanced</a></li>
                 </ul>
-                <a href="<?php echo site_url('logout'); ?>">
+                <a href="<?php echo site_url('logout/logout_admin'); ?>">
                     <i class="fa fa-power-off"></i> <span>Logout</span>
                 </a>
             </li>

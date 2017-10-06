@@ -32,4 +32,10 @@ class Dashboard_model extends CI_Model{
             return $this->db->query('SELECT DISTINCT * FROM log_vote ');
           }
 
+          function get_max(){
+
+            $this->db->select_max('jumlah_vote');
+            return $this->db->get('vote');
+          }
+
 }

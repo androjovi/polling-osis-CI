@@ -19,24 +19,45 @@
   height:100%;
   margin:0 auto;
 }
+@media screen and (max-device-width: 1080px) {
+    .custom0{
+      margin: 0;
+      height: auto;
+      width: auto;
+    }
+    .custom{
+      width: 100%;
+      margin: 0;
+      float: none;
+    }
+    .page-wrap2{
+      margin-bottom: 10px;
+    }
+}
 </style>
-<div>
+
 <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo right"><i class="material-icons">cloud</i>Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <?php foreach ($get_info as $val): ?>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <ul class="left hide-on-med-and-down">
           <li><a href="">NIS : <?php andro($val->nis); ?></a></li>
           <li><a href="">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
           <li><a href="">KELAS : <?php andro($val->kelas); ?></a></li>
           <li><a href="">JURUSAN : <?php andro($val->jurusan); ?></a></li>
         </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="">NIS : <?php andro($val->nis); ?></a></li>
+          <li><a href="">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
+          <li><a href="">KELAS : <?php andro($val->kelas); ?></a></li>
+          <li><a href="">JURUSAN : <?php andro($val->jurusan); ?></a></li>
+      </ul>
 
   <?php endforeach; ?>
 
   </div>
   </nav>
-
 
   <h4 id="title_ketua" style="text-align:center;">Ketua Osis</h4>
 
@@ -45,16 +66,16 @@
   <div class="custom">
     <div class="card">
      <div class="card-image waves-effect waves-block waves-light">
-       <img class="activator" src="<?php echo base_url('assets/img/1.jpg'); ?>">
+       <img class="activator" src="<?php echo $img_calon['ketua1']; ?>">
      </div>
      <div class="card-content">
-       <span class="card-title activator grey-text text-darken-4">Wildan<i class="material-icons right">more_vert</i></span>
+       <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['ketua1']; ?><i class="material-icons right">more_vert</i></span>
        <p><input class="with-gap" name="ketua" type="radio" id="ketua1" value="ketua1"  />
        <label for="ketua1">Pilih</label></p>
      </div>
      <div class="card-reveal">
-       <span class="card-title grey-text text-darken-4">Wildan<i class="material-icons right">close</i></span>
-       <p>Here is some more information about this product that is only revealed once clicked on.</p>
+       <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['ketua1']; ?><i class="material-icons right">close</i></span>
+       <p><?php echo $info_calon['ketua1']; ?></p>
      </div>
    </div>
     </div>
@@ -63,16 +84,16 @@
 <div class="custom">
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-     <img class="activator" src="<?php echo base_url('assets/img/2.jpg'); ?>">
+     <img class="activator" src="<?php echo $img_calon['ketua2']; ?>">
    </div>
    <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">Kevin<i class="material-icons right">more_vert</i></span>
+     <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['ketua2']; ?><i class="material-icons right">more_vert</i></span>
      <p><input class="with-gap" name="ketua" type="radio" id="ketua2" value="ketua2"  />
      <label for="ketua2">Pilih</label></p>
    </div>
    <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">Kevin<i class="material-icons right">close</i></span>
-     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+     <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['ketua2']; ?><i class="material-icons right">close</i></span>
+     <p><?php echo $info_calon['ketua2']; ?></p>
    </div>
  </div>
 </div>
@@ -81,16 +102,16 @@
 <div class="custom">
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-     <img class="activator" src="<?php echo base_url('assets/img/3.jpg'); ?>">
+     <img class="activator" src="<?php echo $img_calon['ketua3']; ?>">
    </div>
    <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">Arip<i class="material-icons right">more_vert</i></span>
+     <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['ketua3']; ?><i class="material-icons right">more_vert</i></span>
      <p><input class="with-gap" name="ketua" type="radio" id="ketua3" value="ketua3"  />
      <label for="ketua3">Pilih</label></p>
    </div>
    <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">Arip<i class="material-icons right">close</i></span>
-     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+     <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['ketua3']; ?><i class="material-icons right">close</i></span>
+     <p><?php echo $info_calon['ketua3']; ?></p>
    </div>
   </div>
   </div>
@@ -102,16 +123,16 @@
   <div class="custom">
     <div class="card">
      <div class="card-image waves-effect waves-block waves-light">
-       <img class="activator" src="<?php echo base_url('assets/img/1.jpg'); ?>">
+       <img class="activator" src="<?php echo $img_calon['wakil1']; ?>">
      </div>
      <div class="card-content">
-       <span class="card-title activator grey-text text-darken-4">Ani<i class="material-icons right">more_vert</i></span>
+       <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['wakil1']; ?><i class="material-icons right">more_vert</i></span>
        <p><input class="with-gap" name="wakil" type="radio" id="wakil1" value="wakil1"  />
        <label for="wakil1">Pilih</label></p>
      </div>
      <div class="card-reveal">
-       <span class="card-title grey-text text-darken-4">Wildan<i class="material-icons right">close</i></span>
-       <p>Here is some more information about this product that is only revealed once clicked on.</p>
+       <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['wakil1']; ?><i class="material-icons right">close</i></span>
+       <p><?php echo $info_calon['wakil1']; ?></p>
      </div>
    </div>
     </div>
@@ -120,16 +141,16 @@
 <div class="custom">
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-     <img class="activator" src="<?php echo base_url('assets/img/2.jpg'); ?>">
+     <img class="activator" src="<?php echo $img_calon['wakil2']; ?>">
    </div>
    <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">Elvan<i class="material-icons right">more_vert</i></span>
+     <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['wakil2']; ?><i class="material-icons right">more_vert</i></span>
      <p><input class="with-gap" name="wakil" type="radio" id="wakil2"  value="wakil2" />
      <label for="wakil2">Pilih</label></p>
    </div>
    <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">Kevin<i class="material-icons right">close</i></span>
-     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+     <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['wakil2']; ?><i class="material-icons right">close</i></span>
+     <p><?php echo $info_calon['wakil3']; ?></p>
    </div>
  </div>
 </div>
@@ -138,16 +159,16 @@
 <div class="custom">
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-     <img class="activator" src="<?php echo base_url('assets/img/3.jpg'); ?>">
+     <img class="activator" src="<?php echo $img_calon['wakil3']; ?>">
    </div>
    <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">Cindy<i class="material-icons right">more_vert</i></span>
+     <span class="card-title activator grey-text text-darken-4"><?php echo $nama_calon['wakil3']; ?><i class="material-icons right">more_vert</i></span>
      <p><input class="with-gap" name="wakil" type="radio" id="wakil3"  value="wakil3" />
      <label for="wakil3">Pilih</label></p>
    </div>
    <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">Arip<i class="material-icons right">close</i></span>
-     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+     <span class="card-title grey-text text-darken-4"><?php echo $nama_calon['wakil3']; ?><i class="material-icons right">close</i></span>
+     <p><?php echo $info_calon['wakil3']; ?></p>
    </div>
   </div>
   </div>
@@ -160,6 +181,7 @@
 </div>
   <script>
   $(document).ready(function(){
+    $(".button-collapse").sideNav();
   $("#pilih_ketua").click(function(){
     if (!$('input[name=ketua]:checked').val() ) {
       swal("Anda belum memilih", "", "warning");
@@ -199,7 +221,7 @@
       wakil : ssc,
     },
     beforeSend:function(){
-       //tampilkan animasi loading
+
     },
     success:function(rs){
       swal({
@@ -212,7 +234,7 @@
     cancelButtonColor: '#d33',
     confirmButtonText: 'Keluar'
     }).then(function () {
-      window.location.href='<?php echo site_url('logout'); ?>';
+      window.location.href='<?php echo site_url('logout/logout'); ?>';
     })
       console.log(ccs);
       console.log(ssc);
@@ -220,8 +242,6 @@
 });
 }
   })
-  window.location.hash="11";
-  window.location.hash="12";
-  window.onhashchange=function(){window.location.hash="11";}
+
 });
 </script>

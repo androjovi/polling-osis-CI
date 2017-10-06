@@ -32,15 +32,20 @@ class Dashboard extends CI_Controller{
             $this->load->view('grafik/graph.php',$data);
           }
           */
+          private function hitung_keseluruhan($jumlah,$total){
+
+            return $jumlah/$total*100;
+          }
 
           function main_page(){
             $data['get_stattrue']=$this->dashboard_model->get_totalakun('status_vote',1)->num_rows();
             $data['get_statfalse']=$this->dashboard_model->get_totalakun('status_vote',0)->num_rows();
             $data['get_stattotal']=$this->dashboard_model->get_totalakun(NULL,NULL)->num_rows();
-            $data['get_percent']=$data['get_stattrue'] / $data['get_stattotal'] * 100;
+            $data['get_percent']=$this->hitung_keseluruhan($data['get_stattrue'],$data['get_stattotal']);
 
             $data['get_vote']=$this->dashboard_model->get_totalvote()->result();
             $data['get_log']=$this->dashboard_model->get_log()->result();
+            $data['get_max']=$this->dashboard_model->get_max()->result();
             $this->load->view('dashboard/dashboard1',$data);
           }
 

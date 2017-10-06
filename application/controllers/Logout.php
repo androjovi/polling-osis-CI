@@ -8,6 +8,9 @@ class Logout extends CI_Controller{
           }
           function index(){
 
+          }
+          function logout(){
+
             //////////////////////////////////////
             $this->load->model(array('vote_model','dashboard_model'));
             $z=$this->vote_model->get_akun()->result();
@@ -26,6 +29,12 @@ class Logout extends CI_Controller{
 
             $this->session->sess_destroy();
             redirect('login');
+          }
+
+          function logout_admin(){
+
+            $this->session->sess_destroy();
+            redirect('dashboard');
           }
 
 }
