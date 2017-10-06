@@ -48,6 +48,44 @@ $().ready(function(){
         labels: ['VOTE'],
         hideHover: 'auto'
       });
+
+      var donut = new Morris.Donut({
+      element: 'donut-chart',
+      resize: true,
+      colors: ["#3c8dbc", "#f56954", "#00a65a"],
+      data: [
+        <?php foreach ($get_ketua as $k):
+          // Ganti nama calon disini
+          switch  ($k->calon){
+            case 'ketua1' : $calon2 = "Eka yoga";break;
+            case 'ketua2' : $calon2 = "Joviandro";break;
+            case 'ketua3' : $calon2 = "Andro";break;
+          }
+           ?>
+        {label: '<?php echo $calon2 ?>', value: <?php echo $k->jumlah_vote ?>,},
+        <?php endforeach; ?>
+      ],
+      hideHover: 'auto'
+    });
+
+    var donut = new Morris.Donut({
+    element: 'donut2-chart',
+    resize: true,
+    colors: ["#3c8dbc", "#f56954", "#00a65a"],
+    data: [
+      <?php foreach ($get_wakil as $k):
+        // Ganti nama calon disini
+        switch  ($k->calon){
+          case 'wakil1' : $calon2 = "Tidak tahu";break;
+          case 'wakil2' : $calon2 = "Tahu uat";break;
+          case 'wakil3' : $calon2 = "Nama clon";break;
+        }
+         ?>
+      {label: '<?php echo $calon2 ?>', value: <?php echo $k->jumlah_vote ?>,},
+      <?php endforeach; ?>
+    ],
+    hideHover: 'auto'
+  });
 });
 </script>
 
@@ -125,35 +163,59 @@ $().ready(function(){
         </div><!-- ./col -->
     </div><!-- /.row -->
     <div class="row">
-           <!-- /.col -->
-           <div class="col-md-3 col-sm-6 col-xs-12">
-             <div class="info-box">
-               <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+        <div class="col-md-6">
+          <!-- AREA CHART -->
 
-               <div class="info-box-content">
-                 <span class="info-box-text"><?php foreach($get_max as $v):echo $v->jumlah_vote;endforeach  ?></span>
-                 <span class="info-box-number"><?php foreach($get_max as $v):endforeach  ?></span>
-               </div>
-               <!-- /.info-box-content -->
-             </div>
-             <!-- /.info-box -->
-           </div>
-           <!-- /.col -->
-           <div class="col-md-3 col-sm-6 col-xs-12">
-             <div class="info-box">
-               <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+          <!-- /.box -->
 
-               <div class="info-box-content">
-                 <span class="info-box-text">Likes</span>
-                 <span class="info-box-number">93,139</span>
-               </div>
-               <!-- /.info-box-content -->
-             </div>
-             <!-- /.info-box -->
-           </div>
-           <!-- /.col -->
-         </div>
-         <!-- /.row -->
+          <!-- DONUT CHART -->
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ketua</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="chart" id="donut-chart" style="height: 300px; position: relative;"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <!-- LINE CHART -->
+
+
+          <!-- BAR CHART -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Wakil ketua</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="chart" id="donut2-chart" style="height: 300px; position: relative;"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
+
+
     <!-- Main row -->
     <div class="box box-primary">
                 <div class="box-header with-border">
@@ -173,82 +235,6 @@ $().ready(function(){
                 <!-- /.box-body-->
               </div>
               <!-- /.box -->
-
-
-              <!-- row -->
-      <div class="row">
-        <div class="col-xs-12">
-          <!-- jQuery Knob -->
-          <div class="box box-solid">
-            <div class="box-header">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">jQuery Knob</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-                <div class="col-xs-6 text-center">
-                  <<input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-
-
-
-
 <?php
 $this->load->view('dashboard/template/js');
 ?>

@@ -1,86 +1,33 @@
-<html>
-  <head>
-    <script src="<?php echo base_url('assets/js/jquery-3.2.1.min.js'); ?>"></script>
-    <!-- Load highcharts ->
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <!-- Untuk 3d charts -->
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
+      ]);
 
-$(function () {
-  $('#graph_ketua').highcharts({
-      chart: {
-          type: 'column',
-          margin: 75,
-          options3d: {
-      enabled: true,
-              alpha: 15,
-              beta: 15,
-              depth: 50
-          }
-      },
-      plotOptions: {
-          column: {
-              depth: 25
-          }
-      },
-      series: [{
-          data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-      }]
-  });
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
-  $('#graph_wakil').highcharts({
-      chart: {
-          type: 'column',
-          margin: 75,
-          options3d: {
-      enabled: true,
-              alpha: 15,
-              beta: 15,
-              depth: 50
-          }
-      },
-      plotOptions: {
-          column: {
-              depth: 25
-          }
-      },
-
-      xAxis: {
-        categories: ['Green', 'Pink','Sss']
-    },
-
-      series: [{
-          data: [{
-            name : 'pon4',
-            color : '#00FF00',
-            y:7
-          }, {
-            name : 'ponasd',
-            color : '#00FF00',
-            y:6
-          }, {
-            name : 'asdsadsa',
-            color : '#00FF00',
-            y : 12
-          }]
-      }]
-  });
-});
-
-    </script>
-    <style>
-    .s{
-      margin-top: 10%;
-      float: right;
-      width: 50%;
-    }
-    </style>
-
-  </head>
-  <body>
-    <div id="graph_ketua" class="s"></div>
-    <div id="graph_wakil" class="s"></div>
-
-  </body>
-</html>
+      var options = {
+        title: "Density of Precious Metals, in g/cm^3",
+        width: 1366,
+        height: 650,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 900px; height: 300px;"></div>

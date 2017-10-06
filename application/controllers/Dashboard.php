@@ -4,6 +4,8 @@ class Dashboard extends CI_Controller{
       /*
           echo using andro($str) biar aman dari xss
 
+          * Membutuhkan penggunaan koneksi karena sebagian assets di load dari cdn
+
        */
 
 
@@ -45,7 +47,11 @@ class Dashboard extends CI_Controller{
 
             $data['get_vote']=$this->dashboard_model->get_totalvote()->result();
             $data['get_log']=$this->dashboard_model->get_log()->result();
-            $data['get_max']=$this->dashboard_model->get_max()->result();
+            $calon_ketua=array('ketua1','ketua2','ketua3');
+            $calon_wakil=array('wakil1','wakil2','wakil3');
+            $data['get_ketua']=$this->dashboard_model->get_max($calon_ketua)->result();
+            $data['get_wakil']=$this->dashboard_model->get_max($calon_wakil)->result();
+
             $this->load->view('dashboard/dashboard1',$data);
           }
 

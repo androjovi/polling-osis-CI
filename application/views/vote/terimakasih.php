@@ -12,7 +12,7 @@ confirmButtonColor: '#3085d6',
 cancelButtonColor: '#d33',
 confirmButtonText: 'Yes, delete it!'
 }).then(function () {
-  window.location.href='<?php echo site_url('logout'); ?>';
+  window.location.href='<?php echo site_url('logout/logout'); ?>';
 })
 window.location.hash="no-back-button";
 window.location.hash="Again-No-back-button";
