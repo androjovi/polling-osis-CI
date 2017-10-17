@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2017 at 05:55 
+-- Generation Time: Oct 17, 2017 at 03:46 
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -41,44 +41,67 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`nis`, `username`, `nama_lengkap`, `kelas`, `jurusan`, `status_vote`) VALUES
 (1, 'jovvi', 'Joviandro nopier marbun', '12', 'RPL', '1'),
-(2, 'Yiek', 'Yiek alfian', '12', 'RPL', '0'),
+(2, 'Yiek', 'Yiek alfian', '12', 'RPL', '1'),
 (3, 'Fahrizal', 'Fahrizal Syaripdin', '12', 'RPL', '1'),
-(4, 'aqsa', 'Muhammad Aqsyal', '12', 'RPL', '0'),
-(5, 'Aldin', 'Aldin abb', '12', 'RPL', '1');
+(4, 'aqsa', 'Muhammad Aqsyal', '12', 'RPL', '1'),
+(5, 'Aldin', 'Aldin abb', '12', 'RPL', '1'),
+(8, 'Fadla', 'Fadlawalad dimas Zo Charli siregar', '12', 'RPL', '1'),
+(9, 'Kevin', 'Kevin Hendra Wijaya', '12', 'RPL', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Table structure for table `log_vote`
 --
 
-CREATE TABLE `log` (
-  `user` varchar(255) NOT NULL,
-  `timestamps` varchar(255) NOT NULL,
-  `log` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `log_vote` (
+  `user` text NOT NULL,
+  `tanggal_waktu` varchar(255) NOT NULL,
+  `add_log` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `log`
+-- Dumping data for table `log_vote`
 --
 
-INSERT INTO `log` (`user`, `timestamps`, `log`) VALUES
-('12345', 'Wed, 27 Sep 2017 15:42:02 +0200', 'Login'),
-('Fajrizal', 'Wed, 27 Sep 2017 15:46:08 +0200', 'Login'),
-('Fajrizal', 'Wed, 27 Sep 2017 15:51:11 +0200', 'pilih calon3'),
-('Fahrizal Syaripdin', 'Thu, 28 Sep 2017 03:03:29 +0200', 'Login'),
-('Fahrizal Syaripdin', 'Thu, 28 Sep 2017 03:03:47 +0200', 'pilih calon1'),
-('Muhammad Aqsyal', 'Thu, 28 Sep 2017 03:03:52 +0200', 'Login'),
-('Fahrizal Syaripdin', 'Thu, 28 Sep 2017 03:06:20 +0200', 'Login'),
-('Fahrizal Syaripdin', 'Thu, 28 Sep 2017 03:06:42 +0200', 'pilih calon2'),
-('Fahrizal Syaripdin', 'Thu, 28 Sep 2017 03:06:48 +0200', 'pilih calon1'),
-('Joviandro nopier marbun', 'Thu, 28 Sep 2017 03:23:21 +0200', 'Login'),
-('Joviandro nopier marbun', 'Thu, 28 Sep 2017 03:31:12 +0200', 'pilih calon1'),
-('Joviandro nopier marbun', 'Thu, 28 Sep 2017 03:31:21 +0200', 'pilih calon2'),
-('Aldin abb', 'Thu, 28 Sep 2017 03:32:37 +0200', 'Login'),
-('Aldin abb', 'Thu, 28 Sep 2017 03:32:57 +0200', 'pilih calon2'),
-('Yiek alfian', 'Thu, 28 Sep 2017 03:34:03 +0200', 'Login'),
-('Muhammad Aqsyal', 'Thu, 28 Sep 2017 05:23:45 +0200', 'Login');
+INSERT INTO `log_vote` (`user`, `tanggal_waktu`, `add_log`) VALUES
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 08:58:14 +0700', 'Login'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 08:58:33 +0700', 'ketua2,wakil1'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 09:00:28 +0700', 'ketua3,wakil3'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 09:00:31 +0700', 'Logout'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 09:02:52 +0700', 'Login'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 09:03:53 +0700', 'ketua1,wakil3'),
+('Joviandro nopier marbun,12,RPL', 'Fri, 06 Oct 2017 09:03:56 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Fri, 06 Oct 2017 19:38:53 +0700', 'Login'),
+('Fahrizal Syaripdin,12,RPL', 'Fri, 06 Oct 2017 19:42:25 +0700', 'Logout'),
+('Muhammad Aqsyal,12,RPL', 'Sat, 07 Oct 2017 17:23:59 +0700', 'Login'),
+('Aldin abb,12,RPL', 'Sat, 07 Oct 2017 17:25:49 +0700', 'Login'),
+('Aldin abb,12,RPL', 'Sat, 07 Oct 2017 17:26:59 +0700', 'ketua1,wakil1'),
+('Muhammad Aqsyal,12,RPL', 'Sat, 07 Oct 2017 17:26:59 +0700', 'ketua1,wakil1'),
+('Aldin abb,12,RPL', 'Sat, 07 Oct 2017 17:27:03 +0700', 'Logout'),
+('Muhammad Aqsyal,12,RPL', 'Sat, 07 Oct 2017 17:27:03 +0700', 'Logout'),
+('Yiek alfian,12,RPL', 'Sat, 07 Oct 2017 17:27:38 +0700', 'Login'),
+('Fadlawalad dimas Zo Charli siregar,12,RPL', 'Sat, 07 Oct 2017 17:27:48 +0700', 'Login'),
+('Yiek alfian,12,RPL', 'Sat, 07 Oct 2017 17:28:17 +0700', 'ketua1,wakil1'),
+('Fadlawalad dimas Zo Charli siregar,12,RPL', 'Sat, 07 Oct 2017 17:28:17 +0700', 'ketua1,wakil1'),
+('Yiek alfian,12,RPL', 'Sat, 07 Oct 2017 17:28:20 +0700', 'Logout'),
+('Fadlawalad dimas Zo Charli siregar,12,RPL', 'Sat, 07 Oct 2017 17:28:20 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Sat, 07 Oct 2017 17:32:45 +0700', 'Login'),
+('Fahrizal Syaripdin,12,RPL', 'Sat, 07 Oct 2017 17:33:43 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Sat, 07 Oct 2017 18:36:52 +0700', 'Login'),
+('Fahrizal Syaripdin,12,RPL', 'Sat, 07 Oct 2017 19:15:58 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Mon, 16 Oct 2017 15:18:28 +0700', 'Login'),
+('Fahrizal Syaripdin,12,RPL', 'Mon, 16 Oct 2017 15:20:13 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Mon, 16 Oct 2017 17:15:41 +0700', 'Login'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 07:38:00 +0700', 'Login'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 07:46:26 +0700', 'Logout'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 07:47:00 +0700', 'Login'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 07:58:21 +0700', 'Logout'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 08:05:44 +0700', 'Login'),
+('Kevin Hendra Wijaya,12,RPL', 'Tue, 17 Oct 2017 08:40:11 +0700', 'Logout'),
+('Fahrizal Syaripdin,12,RPL', 'Tue, 17 Oct 2017 08:44:50 +0700', 'Login'),
+('Fahrizal Syaripdin,12,RPL', 'Tue, 17 Oct 2017 08:45:10 +0700', 'ketua3,wakil3'),
+('Fahrizal Syaripdin,12,RPL', 'Tue, 17 Oct 2017 08:45:13 +0700', 'Logout');
 
 -- --------------------------------------------------------
 
@@ -88,6 +111,9 @@ INSERT INTO `log` (`user`, `timestamps`, `log`) VALUES
 
 CREATE TABLE `vote` (
   `calon` varchar(33) NOT NULL,
+  `nama_calon` varchar(50) NOT NULL,
+  `deskripsi_calon` text NOT NULL,
+  `foto_calon` text NOT NULL,
   `jumlah_vote` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -95,10 +121,13 @@ CREATE TABLE `vote` (
 -- Dumping data for table `vote`
 --
 
-INSERT INTO `vote` (`calon`, `jumlah_vote`) VALUES
-('calon1', 2),
-('calon2', 3),
-('calon3', 0);
+INSERT INTO `vote` (`calon`, `nama_calon`, `deskripsi_calon`, `foto_calon`, `jumlah_vote`) VALUES
+('ketua1', 'Ikbal maulana', 'Saya tidak tau harus berkata apa', '11.jpg', 20),
+('ketua2', 'Fahrizal syaripudin', 'Saya sangat bahagia bisa masuk osis', '21.jpg', 100),
+('ketua3', 'JOvianro', 'asdsad', '3.jpg', 10),
+('wakil1', 'sadddd', 'ddddaazzz', '1.jpg', 11),
+('wakil2', 'Berlinag', 'sadsadsa', '2.jpg', 12),
+('wakil3', 'Noor fadhil fadal ahmad', 'Tidak ada', '3.jpg', 19);
 
 --
 -- Indexes for dumped tables
