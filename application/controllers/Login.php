@@ -8,12 +8,12 @@ class Login extends CI_Controller{
             $this->load->library(array('form_validation','session'));
 
             // Cek sesi
-            if ($this->session->userdata('status_login')){
-              redirect('vote');
-            }
           }
 
           function index(){
+            if ($this->session->userdata('status_login')){
+              redirect('vote');
+            }
             $this->load->view('statis/header');
 
             $this->load->view('login/vw_login');

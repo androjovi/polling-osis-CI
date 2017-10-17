@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html>		<!--	 Version 2.0 Copyright © 19SM-20M Joviandro. All rights reserved. -->	 
   <head>
     <meta charset="utf-8">
     <meta name="theme-color" content="#ee6e73">

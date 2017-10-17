@@ -7,7 +7,9 @@ class Dashboard extends CI_Controller{
           * Membutuhkan penggunaan koneksi karena sebagian assets di load dari cdn
           * Programmer : Joviandro dan 12 Rpl
 
-          * Fungsi switch lebih disarankan daripada mengganti nama row di database
+          * Ganti nama calon,deskripsi,foto di dashboard/advanced_page
+
+          * Page grafik akan merefresh otamatis setiap 60 detik, atau pake setInterval(), Socket ,
 
        */
 
@@ -31,6 +33,7 @@ class Dashboard extends CI_Controller{
             $this->load->view('dashboard/template/sidebar');
             $this->load->view('dashboard/template/js');
             $this->load->view('dashboard/template/foot');
+
           }
           /*
           function grafik(){
@@ -109,10 +112,16 @@ class Dashboard extends CI_Controller{
           }
 
           function ubah_profilcalonwakil($calon){
-
+            $this->load->library('upload');
+              $config['upload_path']   = './assets/img/';
+              $config['allowed_types'] = 'jpg|png|jpeg';
+              $config['max_size']      = '5000';
+            $this->upload->initialize($config);
+            $this->upload->do_upload('foto_wakil');
             $data=array(
               'nama_calon' => $this->input->post('nama_wakil'),
               'deskripsi_calon' => $this->input->post('deskripsi_wakil'),
+              'foto_calon'      => $this->upload->data('file_name'),
             );
             $where=array(
               'calon' => $calon

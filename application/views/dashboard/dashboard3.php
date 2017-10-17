@@ -56,12 +56,14 @@ $(document).ready(function(){
   $("#wakil3").click(function(){
     $("#input_wakil3").toggle();
   })
+
 })
 </script>
 <section class="content">
 
   <div class="box-body pad table-responsive">
-                <p>Pengubahan harus sesuai prosedur dari sang maha ganteng jovi</p>
+                <p>Pengubahan harus sesuai prosedur dari sang pangeran jovi, jika sudah di direct kembali maka proses berhasil</p>
+                <p>Disarankan menggunakan gambar 1080px 1080px</p>
                 <table class="table table-bordered text-center">
                   <tr>
                     <th colspan="6">Perubahan data ketua</th>
@@ -123,15 +125,15 @@ $(document).ready(function(){
                 <div class="box-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama calon</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua" required="true" maxlength="60" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Deskripsi calon</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua" required="true" maxlength="60">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
-                    <input type="file" id="exampleInputFile" name="foto_ketua">
+                    <input type="file" id="exampleInputFile" name="foto_ketua" required="true">
 
                     <p class="help-block">Upload foto peserta </p>
                   </div>
@@ -162,11 +164,11 @@ $(document).ready(function(){
                           <div class="box-body">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Nama calon</label>
-                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua">
+                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua" required="true" maxlength="60">
                             </div>
                             <div class="form-group">
                               <label for="exampleInputPassword1">Deskripsi calon</label>
-                              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua">
+                              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua" required="true" maxlength="60">
                             </div>
                             <div class="form-group">
                               <label for="exampleInputFile">File input</label>
@@ -199,11 +201,11 @@ $(document).ready(function(){
                                   <div class="box-body">
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Nama calon</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua">
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_ketua" required="true" maxlength="60">
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputPassword1">Deskripsi calon</label>
-                                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua">
+                                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_ketua" required="true" maxlength="60">
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputFile">File input</label>
@@ -239,11 +241,11 @@ $(document).ready(function(){
                                               <div class="box-body">
                                                 <div class="form-group">
                                                   <label for="exampleInputEmail1">Nama calon</label>
-                                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil">
+                                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil" required="true" maxlength="60">
                                                 </div>
                                                 <div class="form-group">
                                                   <label for="exampleInputPassword1">Deskripsi calon</label>
-                                                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil">
+                                                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil" required="true" maxlength="60">
                                                 </div>
                                                 <div class="form-group">
                                                   <label for="exampleInputFile">File input</label>
@@ -280,11 +282,11 @@ $(document).ready(function(){
                                                         <div class="box-body">
                                                           <div class="form-group">
                                                             <label for="exampleInputEmail1">Nama calon</label>
-                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil">
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil" required="true" maxlength="60">
                                                           </div>
                                                           <div class="form-group">
                                                             <label for="exampleInputPassword1">Deskripsi calon</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil">
+                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil" required="true" maxlength="60">
                                                           </div>
                                                           <div class="form-group">
                                                             <label for="exampleInputFile">File input</label>
@@ -319,11 +321,11 @@ $(document).ready(function(){
                                                                   <div class="box-body">
                                                                     <div class="form-group">
                                                                       <label for="exampleInputEmail1">Nama calon</label>
-                                                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil">
+                                                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan nama calon" name="nama_wakil" required="true" maxlength="60">
                                                                     </div>
                                                                     <div class="form-group">
                                                                       <label for="exampleInputPassword1">Deskripsi calon</label>
-                                                                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil">
+                                                                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukkan deskripsi calon" name="deskripsi_wakil" required="true" maxlength="60">
                                                                     </div>
                                                                     <div class="form-group">
                                                                       <label for="exampleInputFile">File input</label>

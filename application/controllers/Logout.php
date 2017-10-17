@@ -7,7 +7,6 @@ class Logout extends CI_Controller{
             $this->load->library(array('session'));
           }
           function index(){
-
           }
           function logout(){
 
@@ -28,12 +27,13 @@ class Logout extends CI_Controller{
             ////////////////////////////////////////
 
             $this->session->sess_destroy();
+
             redirect('login');
           }
 
           function logout_admin(){
 
-            $this->session->sess_destroy();
+
             redirect('dashboard');
           }
 
