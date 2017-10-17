@@ -35,54 +35,53 @@ class Vote extends CI_Controller{
                 redirect('login');
               }
 
-              $this->img_ketua1 = base_url('assets/img/1.jpg');
-              $this->img_ketua2 = base_url('assets/img/2.jpg');
-              $this->img_ketua3 = base_url('assets/img/3.jpg');
-              $this->img_wakil1 = base_url('assets/img/1.jpg');
-              $this->img_wakil2 = base_url('assets/img/2.jpg');
-              $this->img_wakil3 = base_url('assets/img/3.jpg');
+              $get_ketua=array('ketua1','ketua2','ketua3');
+              $data_ketua=$this->vote_model->read_calonwakil($get_ketua)->result();
 
-              $this->nama_ketua1 = "Fahrizal";
-              $this->nama_ketua2 = "Yiek";
-              $this->nama_ketua3 = "Kevin";
-              $this->nama_wakil1 = "Fadil";
-              $this->nama_wakil2 = "Wawan";
-              $this->nama_wakil3 = "Aqsal";
+              foreach ($data_ketua as $z) {
 
-              $this->info_ketua1 = "Sangat sedih";
-              $this->info_ketua2 = "Bergembira";
-              $this->info_ketua3 = "Khawatir";
-              $this->info_wakil1 = "Siapa saya ?";
-              $this->info_wakil2 = "Saya siapa ?";
-              $this->info_wakil3 = "Siapa anda ?";
+              $this->nama_ketua[] = $z->nama_calon;
+              $this->info_ketua[] = $z->deskripsi_calon;
+              $this->img_ketua[]  = base_url('assets/img/').$z->foto_calon;
+
+            }
+              $get_wakil=array('wakil1','wakil2','wakil3');
+              $data_wakil=$this->vote_model->read_calonwakil($get_wakil)->result();
+
+              foreach ($data_wakil as $z) {
+                $this->nama_wakil[] = $z->nama_calon;
+                $this->info_wakil[] = $z->deskripsi_calon;
+                $this->img_wakil[]  = base_url('assets/img/').$z->foto_calon;
+              }
 
           }
 
           function index(){
             $data['get_info']=$this->vote_model->get_akun()->result();
             $data['img_calon']=array(
-              'ketua1' => $this->img_ketua1,
-              'ketua2' => $this->img_ketua2,
-              'ketua3' => $this->img_ketua3,
-              'wakil1' => $this->img_wakil1,
-              'wakil2' => $this->img_wakil2,
-              'wakil3' => $this->img_wakil3,
+              'ketua1' => $this->img_ketua[0],
+              'ketua2' => $this->img_ketua[1],
+              'ketua3' => $this->img_ketua[2],
+              'wakil1' => $this->img_wakil[0],
+              'wakil2' => $this->img_wakil[1],
+              'wakil3' => $this->img_wakil[2],
             );
             $data['nama_calon']=array(
-              'ketua1' => $this->nama_ketua1,
-              'ketua2' => $this->nama_ketua2,
-              'ketua3' => $this->nama_ketua3,
-              'wakil2' => $this->nama_wakil1,
-              'wakil1' => $this->nama_wakil2,
-              'wakil3' => $this->nama_wakil3,
+              'ketua1' => $this->nama_ketua[0],
+              'ketua2' => $this->nama_ketua[1],
+              'ketua3' => $this->nama_ketua[2],
+              'wakil1' => $this->nama_wakil[0],
+              'wakil2' => $this->nama_wakil[1],
+              'wakil3' => $this->nama_wakil[2],
+
             );
             $data['info_calon']=array(
-              'ketua1' => $this->info_ketua1,
-              'ketua2' => $this->info_ketua2,
-              'ketua3' => $this->info_ketua3,
-              'wakil1' => $this->info_wakil1,
-              'wakil2' => $this->info_wakil2,
-              'wakil3' => $this->info_wakil3,
+              'ketua1' => $this->info_ketua[0],
+              'ketua2' => $this->info_ketua[1],
+              'ketua3' => $this->info_ketua[2],
+              'wakil1' => $this->info_wakil[0],
+              'wakil2' => $this->info_wakil[1],
+              'wakil3' => $this->info_wakil[2],
             );
             $this->load->view('vote/vw_vote',$data);
           }

@@ -37,5 +37,21 @@ class Dashboard_model extends CI_Model{
             return $this->db->get('vote');
           }
 
+          function get_sum($in){
+            $this->db->select_sum('jumlah_vote');
+            $this->db->where_in('calon',$in);
+            return $this->db->get('vote');
+          }
 
+          function update_profil($data,$where){
+
+            $this->db->set($data);
+            $this->db->where($where);
+            return $this->db->update('vote');
+
+          }
 }
+
+/* End of file Dashboard_model.php
+ * Location application/models/Dashboard_model.php
+ */

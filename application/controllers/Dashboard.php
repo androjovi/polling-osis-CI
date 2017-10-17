@@ -5,9 +5,11 @@ class Dashboard extends CI_Controller{
           echo using andro($str) biar aman dari xss
 
           * Membutuhkan penggunaan koneksi karena sebagian assets di load dari cdn
+          * Programmer : Joviandro dan 12 Rpl
+
+          * Fungsi switch lebih disarankan daripada mengganti nama row di database
 
        */
-
 
           function __construct(){
 
@@ -17,6 +19,9 @@ class Dashboard extends CI_Controller{
               redirect('login/login_admin');
             }
             $this->load->model('dashboard_model');
+            $calon_ketua=array('ketua1','ketua2','ketua3');
+
+
 
           }
 
@@ -47,21 +52,80 @@ class Dashboard extends CI_Controller{
 
             $data['get_vote']=$this->dashboard_model->get_totalvote()->result();
             $data['get_log']=$this->dashboard_model->get_log()->result();
+
             $calon_ketua=array('ketua1','ketua2','ketua3');
             $calon_wakil=array('wakil1','wakil2','wakil3');
+
             $data['get_ketua']=$this->dashboard_model->get_max($calon_ketua)->result();
             $data['get_wakil']=$this->dashboard_model->get_max($calon_wakil)->result();
 
             $this->load->view('dashboard/dashboard1',$data);
           }
 
-          function advanced_page(){
+          function history_page(){
 
             $data['get_distinct']=$this->dashboard_model->get_filterlog()->result();
             $this->load->view('dashboard/dashboard2',$data);
           }
 
           function grafik(){
-            $this->load->view('grafik/graph.php');
+            /* Dapatkan persen
+              * Jumlah vote calon / seluruh hasil vote dari calon ketua * 100
+            */
+            $calon_ketua=array('ketua1','ketua2','ketua3');
+            $calon_wakil=array('wakil1','wakil2','wakil3');
+            $data['get_sumketua']=$this->dashboard_model->get_sum($calon_ketua)->result();
+            $data['get_sumwakil']=$this->dashboard_model->get_sum($calon_ketua)->result();
+            $data['get_ketua']=$this->dashboard_model->get_max($calon_ketua)->result();
+            $data['get_wakil']=$this->dashboard_model->get_max($calon_wakil)->result();
+            $this->load->view('grafik/graph.php',$data);
           }
+
+          function advanced_page(){
+
+            $this->load->view('dashboard/dashboard3');
+          }
+
+          function ubah_profilcalonketua($calon){
+              $this->load->library('upload');
+                $config['upload_path']   = './assets/img/';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_size']      = '5000';
+              $this->upload->initialize($config);
+              $this->upload->do_upload('foto_ketua');
+            $data=array(
+              'nama_calon'      => $this->input->post('nama_ketua'),
+              'deskripsi_calon' => $this->input->post('deskripsi_ketua'),
+              'foto_calon'      => $this->upload->data('file_name'),
+            );
+            $where=array(
+              'calon' => $calon
+            );
+
+              $g=$this->dashboard_model->update_profil($data,$where);
+              if ($g){
+                  redirect('dashboard/advanced_page');
+              }
+          }
+
+          function ubah_profilcalonwakil($calon){
+
+            $data=array(
+              'nama_calon' => $this->input->post('nama_wakil'),
+              'deskripsi_calon' => $this->input->post('deskripsi_wakil'),
+            );
+            $where=array(
+              'calon' => $calon
+            );
+
+            $g=$this->dashboard_model->update_profil($data,$where);
+            if ($g){
+              redirect('dashboard/advanced_page');
+            }
+          }
+
 }
+
+/* End of file Dashboard.php
+ * Location application/controllers/Dashboard.php
+ */

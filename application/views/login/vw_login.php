@@ -52,6 +52,7 @@
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row container-2">
 
+          <img style="height:60px;" src="<?php echo base_url('assets/img/logo-fadilah.png'); ?>" >
 
             <div class='row'>
               <div class='col s12'>

@@ -37,4 +37,13 @@ class Logout extends CI_Controller{
             redirect('dashboard');
           }
 
+            // * Halaman 404, tambahkan di routes jika mau, w,w,
+          function nf404(){
+            $this->load->view('errors/404nf');
+          }
+
 }
+
+/* End of file Logout.php
+ * Location application/controllers/Logout.php
+ */

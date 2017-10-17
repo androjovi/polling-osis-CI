@@ -32,4 +32,13 @@ protected $sesi;
               $this->db->where('nis',$this->session->userdata('nis'));
               return $this->db->update('akun');
             }
+
+            function read_calonwakil($data){
+              $this->db->where_in('calon',$data);
+              return $this->db->get('vote');
+            }
 }
+
+/* End of file Vote_model.php
+ * Location application/models/Vote_model.php
+ */

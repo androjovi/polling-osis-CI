@@ -22,7 +22,7 @@ class Login extends CI_Controller{
           function auth(){
             $this->load->view('statis/header');
 
-            $this->form_validation->set_rules('nis','Nomor induk siswa','required|max_length[12]');
+            $this->form_validation->set_rules('nis','Nomor induk siswa','required|trim|max_length[20]');
 
             if ($this->form_validation->run()){
               $data=array(
@@ -100,3 +100,7 @@ class Login extends CI_Controller{
           }
 
 }
+
+/* End of file Login.php
+ * Location application/controllers/Login.php
+ */

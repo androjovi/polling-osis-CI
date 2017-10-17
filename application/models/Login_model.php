@@ -6,3 +6,7 @@ class Login_model extends CI_Model{
             return $this->db->get('akun');
           }
 }
+
+/* End of file Login_model.php
+ * Location application/models/Login_model.php
+ */

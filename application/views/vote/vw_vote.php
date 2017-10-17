@@ -38,20 +38,20 @@
 
 <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo right"><i class="material-icons">cloud</i>Logo</a>
+      <a href="#!" class="brand-logo right"><img style="height:60px;" src="<?php echo base_url('assets/img/logo-fadilah.png'); ?>" ></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <?php foreach ($get_info as $val): ?>
         <ul class="left hide-on-med-and-down">
-          <li><a href="">NIS : <?php andro($val->nis); ?></a></li>
-          <li><a href="">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
-          <li><a href="">KELAS : <?php andro($val->kelas); ?></a></li>
-          <li><a href="">JURUSAN : <?php andro($val->jurusan); ?></a></li>
+          <li><a href="#">NIS : <?php andro($val->nis); ?></a></li>
+          <li><a href="#">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
+          <li><a href="#">KELAS : <?php andro($val->kelas); ?></a></li>
+          <li><a href="#">JURUSAN : <?php andro($val->jurusan); ?></a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><a href="">NIS : <?php andro($val->nis); ?></a></li>
-          <li><a href="">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
-          <li><a href="">KELAS : <?php andro($val->kelas); ?></a></li>
-          <li><a href="">JURUSAN : <?php andro($val->jurusan); ?></a></li>
+          <li><a href="#">NIS : <?php andro($val->nis); ?></a></li>
+          <li><a href="#">NAMA : <?php andro($val->nama_lengkap); ?></a></li>
+          <li><a href="#">KELAS : <?php andro($val->kelas); ?></a></li>
+          <li><a href="#">JURUSAN : <?php andro($val->jurusan); ?></a></li>
       </ul>
 
   <?php endforeach; ?>

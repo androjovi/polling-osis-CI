@@ -29,17 +29,9 @@ $().ready(function(){
         resize: true,
         data: [
           <?php foreach ($get_vote as $k):
-            // Ganti nama calon disini
-            switch  ($k->calon){
-              case 'ketua1' : $calon = "Eka yoga";break;
-              case 'ketua2' : $calon = "Joviandro";break;
-              case 'ketua3' : $calon = "Andro";break;
-              case 'wakil1' : $calon = "William";break;
-              case 'wakil2' : $calon = "Kevin hendraw";break;
-              case 'wakil3' : $calon = "Ciat ciat";break;
-            }
+
              ?>
-          {y: '<?php echo $calon ?>', a: <?php echo $k->jumlah_vote ?>,},
+          {y: '<?php echo $k->nama_calon; ?>', a: <?php echo $k->jumlah_vote; ?>,},
           <?php endforeach; ?>
         ],
         barColors: ['#00a65a', '#f56954'],
@@ -55,14 +47,8 @@ $().ready(function(){
       colors: ["#3c8dbc", "#f56954", "#00a65a"],
       data: [
         <?php foreach ($get_ketua as $k):
-          // Ganti nama calon disini
-          switch  ($k->calon){
-            case 'ketua1' : $calon2 = "Eka yoga";break;
-            case 'ketua2' : $calon2 = "Joviandro";break;
-            case 'ketua3' : $calon2 = "Andro";break;
-          }
            ?>
-        {label: '<?php echo $calon2 ?>', value: <?php echo $k->jumlah_vote ?>,},
+        {label: '<?php echo $k->nama_calon; ?>', value: <?php echo $k->jumlah_vote; ?>,},
         <?php endforeach; ?>
       ],
       hideHover: 'auto'
@@ -74,14 +60,8 @@ $().ready(function(){
     colors: ["#3c8dbc", "#f56954", "#00a65a"],
     data: [
       <?php foreach ($get_wakil as $k):
-        // Ganti nama calon disini
-        switch  ($k->calon){
-          case 'wakil1' : $calon2 = "Tidak tahu";break;
-          case 'wakil2' : $calon2 = "Tahu uat";break;
-          case 'wakil3' : $calon2 = "Nama clon";break;
-        }
          ?>
-      {label: '<?php echo $calon2 ?>', value: <?php echo $k->jumlah_vote ?>,},
+      {label: '<?php echo $k->nama_calon; ?>', value: <?php echo $k->jumlah_vote; ?>,},
       <?php endforeach; ?>
     ],
     hideHover: 'auto'
